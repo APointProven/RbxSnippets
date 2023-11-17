@@ -1,5 +1,5 @@
 <div align="center">
-    <a><img src="/APointProven.svg" alt="APointProven" height="300" /></a>
+    <a><img src="/APointProven.svg" alt="APointProven" height="200" /></a>
 <div>&nbsp;</div>
 
 # RBX Snippets
