@@ -1,2 +1,88 @@
-# RbxSnippets
- Random functions that I use frequently
+<div align="center">
+    <a><img src="/APointProven.svg" alt="APointProven" height="300" /></a>
+<div>&nbsp;</div>
+
+# RBX Snippets
+</div>
+This repo is simply just a bunch of functions that I believe have multiple use cases.
+
+As I create more functions that are used throughout my projects, I will add them here :D!
+
+Eventually I will be open to pull requests, but for now, here are my functions:
+
+## CFrameToAngles
+
+```lua
+function Convert(xa, ya, za)
+	return CFrame.Angles(math.rad(xa), math.rad(ya), math.rad(za))
+end
+```
+
+This function simply converts **CFrame** degree input to radians
+## GetDictionaryLength
+
+```lua
+local function Length(dictionary)
+	local count = 0
+	for _,_ in pairs (dictionary) do
+		count += 1
+	end
+	return count
+end
+```
+
+Since you can't use the **#** symbol on dictionaries, this function adds to the count for every index iteration
+
+## GrabNearbyPlayers
+
+```lua
+local Players = game:GetService("Players")
+local function grabPlayers(plr: Player, dist: number)
+    local Close = {}
+    local rootPos: Vector3 = ...
+    for _,v  in pairs(Players:GetPlayers()) do
+       ... -- omitted due to size
+    end
+    return Close
+end
+```
+<span style='color:orange'>
+
+**SEE FULL FUNCTION IN SRC**
+
+</span>
+
+This function interates through the **Players** service and adds players near the **plr** argument based on the **dist** argument you provide.
+
+**Example of Use Case:**
+```lua
+for _,v in pairs(Close) do
+    RemoteEvent:Fire(v, ...)
+end
+```
+## TimeToText
+
+```lua
+function Convert(s, bool) -- s(seconds), bool(whether you want hours or not)
+    local mins = string.format("%02i:%02i", s/60%60, s%60)
+    local hrs = string.format("%02i:%02i:%02i", s/60^2, s/60%60, s%60)
+    if bool == nil then
+        if (s/60^2) < 1 then
+            return mins
+        else
+            return hrs
+        end
+    end
+    if bool then return hrs end
+end
+```
+This function serves as an easy way to convert seconds into a clock time format for UserInterfaces.
+
+**Example of Use Case:**
+```lua
+TextLabel.Text = Convert(300)
+-- Equates to 05:00
+
+TextLabel.Text = Convert(300, true)
+-- Equates to 00:05:00
+```
