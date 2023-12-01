@@ -19,6 +19,27 @@ end
 ```
 
 This function simply converts **CFrame** degree input to radians
+
+## CFrameToAngles
+```lua
+function checkTable(tbl, check: any)
+	local bool = true
+	for _, v in pairs(tbl) do
+		if check then
+			if v ~= check then
+				bool = false
+			end
+		else
+			if v == nil then
+				bool = false
+			end
+		end
+	end
+    return bool
+end
+```
+Allows you to check if all values inside of a `tbl` matches the `check` argument. If no `check` argument is passed then it defaults to seeing if the value exists.
+
 ## GetDictionaryLength
 
 ```lua
