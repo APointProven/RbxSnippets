@@ -20,7 +20,7 @@ end
 
 This function simply converts **CFrame** degree input to radians
 
-## CFrameToAngles
+## CheckTable
 ```lua
 function checkTable(tbl, check: any)
 	local bool = true
