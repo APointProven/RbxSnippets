@@ -18,7 +18,7 @@ function Convert(xa, ya, za)
 end
 ```
 
-This function simply converts **CFrame** degree input to radians
+This function simply converts `CFrame` degree input to radians
 
 ## [CheckInTable](src/CheckInTable.lua)
 ```lua
@@ -52,13 +52,13 @@ local function Length(dictionary)
 end
 ```
 
-Since you can't use the **#** symbol on dictionaries, this function adds to the count for every index iteration
+Since you can't use the `#` symbol on dictionaries, this function adds to the `count` for every index iteration
 
 ## [GrabNearbyPlayers](src/GrabNearbyPlayers.lua)
 
 ```lua
 local Players = game:GetService("Players")
-local function grabPlayers(plr: Player, dist: number)
+local function grabPlayers(plr: Player, distance: number)
     local Close = {}
     local rootPos: Vector3 = ...
     for _,v  in pairs(Players:GetPlayers()) do
@@ -73,7 +73,7 @@ end
 
 </span>
 
-This function interates through the **Players** service and adds players near the **plr** argument based on the **dist** argument you provide.
+This function interates through the `Players` service and adds players near the `plr` argument based on the `distance` argument you provide.
 
 **Example of Use Case:**
 ```lua
