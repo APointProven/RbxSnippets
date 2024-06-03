@@ -1,7 +1,9 @@
 local Players = game:GetService("Players")
 local function grabPlayers(plr: Player, dist: number)
     local Close = {}
-    local rootPos: Vector3 = plr.Character:FindFirstChild('HumanoidRootPart').Position
+    local Character = plr.Character
+    local HumanoidRootPart: BasePart = Character:FindFirstChild('HumanoidRootPart')
+    local rootPos: Vector3 = HumanoidRootPart.Position
 
     for _,v  in pairs(Players:GetPlayers()) do
         if v.Character and v.Character ~= plr.Character then
