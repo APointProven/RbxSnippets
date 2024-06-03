@@ -10,55 +10,55 @@ As I create more functions that are used throughout my projects, I will add them
 
 Eventually I will be open to pull requests, but for now, here are my functions:
 
-## CFrameToAngles
+## [CFrameToAngles](src/CFrameToAngles.lua)
 
 ```lua
 function Convert(xa, ya, za)
-	return CFrame.Angles(math.rad(xa), math.rad(ya), math.rad(za))
+    return CFrame.Angles(math.rad(xa), math.rad(ya), math.rad(za))
 end
 ```
 
-This function simply converts **CFrame** degree input to radians
+This function simply converts `CFrame` degree input to radians
 
-## CFrameToAngles
+## [CheckInTable](src/CheckInTable.lua)
 ```lua
 function checkTable(tbl, check: any)
-	local bool = true
-	for _, v in pairs(tbl) do
-		if check then
-			if v ~= check then
-				bool = false
-			end
-		else
-			if v == nil then
-				bool = false
-			end
-		end
+    local bool = true
+    for _, v in pairs(tbl) do
+	if check then
+	    if v ~= check then
+		bool = false
+	    end
+	else
+	    if v == nil then
+		bool = false
+	    end
 	end
+    end
     return bool
 end
 ```
 Allows you to check if all values inside of a `tbl` matches the `check` argument. If no `check` argument is passed then it defaults to seeing if the value exists.
 
-## GetDictionaryLength
+## [GetDictionaryLength](src/GetDictionaryLength.lua)
 
 ```lua
 local function Length(dictionary)
-	local count = 0
-	for _,_ in pairs (dictionary) do
-		count += 1
-	end
-	return count
+    local count = 0
+    for _,_ in pairs (dictionary) do
+	count += 1
+    end
+    return count
 end
 ```
 
-Since you can't use the **#** symbol on dictionaries, this function adds to the count for every index iteration
+Since you can't use the `#` symbol on dictionaries, this function adds to the `count` for every index iteration
 
-## GrabNearbyPlayers
+## [GrabNearbyPlayers](src/GrabNearbyPlayers.lua)
 
 ```lua
 local Players = game:GetService("Players")
-local function grabPlayers(plr: Player, dist: number)
+local function grabPlayers(plr: Player, distance: number)
     local Close = {}
     local rootPos: Vector3 = ...
     for _,v  in pairs(Players:GetPlayers()) do
@@ -73,7 +73,7 @@ end
 
 </span>
 
-This function interates through the **Players** service and adds players near the **plr** argument based on the **dist** argument you provide.
+This function interates through the `Players` service and adds players near the `plr` argument based on the `distance` argument you provide.
 
 **Example of Use Case:**
 ```lua
@@ -81,7 +81,7 @@ for _,v in pairs(Close) do
     RemoteEvent:Fire(v, ...)
 end
 ```
-## TimeToText
+## [TimeToText](src/TimeToText.lua)
 
 ```lua
 function Convert(s, bool) -- s(seconds), bool(whether you want hours or not)
