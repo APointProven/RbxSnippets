@@ -107,3 +107,44 @@ TextLabel.Text = Convert(300)
 TextLabel.Text = Convert(300, true)
 -- Equates to 00:05:00
 ```
+## CopyAndMerge
+
+```lua
+-- Copying
+local function copy(original)
+    local newCopy = {}
+    for k, v in pairs(original) do
+        if type(v) == "table" then
+            v = copy(v)
+        end 
+        newCopy[k] = v
+    end
+    return newCopy
+end
+
+-- Merging
+return function (original, overrides)
+    local newCopy = copy(original)
+    for k, v in pairs(overrides) do
+        newCopy[k] = v
+    end
+    return newCopy
+end
+```
+A way to reuse values from dictionaries without OOP.
+
+**Example of Use Case:**
+```lua
+local merge = require(CopyAndMerge)
+
+local Person1 = {
+    name = "Jack",
+    city = "Houston",
+    state = "Texas",
+    hobby = "Golfing"
+}
+local Person2 = merge(Person1, {
+    name = "Cathy",
+    hobby = "Biking"
+})
+```
