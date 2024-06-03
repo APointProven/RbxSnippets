@@ -14,7 +14,7 @@ Eventually I will be open to pull requests, but for now, here are my functions:
 
 ```lua
 function Convert(xa, ya, za)
-    return CFrame.Angles(math.rad(xa), math.rad(ya), math.rad(za))
+	return CFrame.Angles(math.rad(xa), math.rad(ya), math.rad(za))
 end
 ```
 
@@ -23,18 +23,18 @@ This function simply converts `CFrame` degree input to radians
 ## [CheckInTable](src/CheckInTable.lua)
 ```lua
 function checkTable(tbl, check: any)
-    local bool = true
-    for _, v in pairs(tbl) do
-	if check then
-	    if v ~= check then
-		bool = false
-	    end
-	else
-	    if v == nil then
-		bool = false
-	    end
+	local bool = true
+	for _, v in pairs(tbl) do
+		if check then
+			if v ~= check then
+				bool = false
+			end
+		else
+			if v == nil then
+				bool = false
+			end
+		end
 	end
-    end
     return bool
 end
 ```
@@ -44,11 +44,11 @@ Allows you to check if all values inside of a `tbl` matches the `check` argument
 
 ```lua
 local function Length(dictionary)
-    local count = 0
-    for _,_ in pairs (dictionary) do
-	count += 1
-    end
-    return count
+	local count = 0
+	for _,_ in pairs (dictionary) do
+		count += 1
+	end
+	return count
 end
 ```
 
@@ -107,7 +107,7 @@ TextLabel.Text = Convert(300)
 TextLabel.Text = Convert(300, true)
 -- Equates to 00:05:00
 ```
-## CopyAndMerge
+## [CopyAndMerge](src/CopyAndMerge.lua)
 
 ```lua
 -- Copying
